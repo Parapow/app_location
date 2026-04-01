@@ -2,52 +2,65 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Livret d'accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Livret</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<header class="header">
-  <h1>Bienvenue 👋</h1>
-  <p>Votre guide du séjour</p>
-</header>
+<div class="app">
 
-<main class="container">
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Bienvenue</h1>
+    <h2>Chez lulu</h2>
+    <p class="address">📍 1 Avenue des Champs-Élysées, Paris, France</p>
+  </header>
 
-  <div class="card" data-target="wifi">
-    <div class="card-content">
-      <span>📶 WiFi</span>
+  <!-- MENU -->
+  <section class="menu">
+    <p class="section-title">Explorer</p>
+
+    <div class="pills">
+      <button class="pill active" data-filter="activites">🎟 Activités</button>
+      <button class="pill" data-filter="restaurants">🍽 Restaurants</button>
+      <button class="pill" data-filter="bars">🍷 Bars</button>
     </div>
-  </div>
+  </section>
 
-  <div class="card" data-target="checkin">
-    <div class="card-content">
-      <span>🔑 Arrivée</span>
+  <!-- LOGEMENT -->
+  <section class="content">
+    <p class="section-title">Votre logement</p>
+
+    <div class="card" data-category="activites">
+      <img src="assets/wifi.jpg" />
+      <div class="overlay">
+        <span>WiFi</span>
+        <button>VOIR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="card" data-target="rules">
-    <div class="card-content">
-      <span>📋 Règles</span>
+    <div class="card" data-category="activites">
+      <img src="assets/checkin.jpg" />
+      <div class="overlay">
+        <span>À votre arrivée</span>
+        <button>VOIR</button>
+      </div>
     </div>
-  </div>
 
-  <div class="card" data-target="local">
-    <div class="card-content">
-      <span>📍 Bonnes adresses</span>
+    <div class="card" data-category="activites">
+      <img src="assets/checkout.jpg" />
+      <div class="overlay">
+        <span>Avant votre départ</span>
+        <button>VOIR</button>
+      </div>
     </div>
-  </div>
 
-</main>
+  </section>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
