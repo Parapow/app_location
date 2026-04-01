@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenue</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Livret d'accueil</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<header>
+<header class="header">
   <h1>Bienvenue 👋</h1>
+  <p>Votre guide du séjour</p>
 </header>
 
-<section class="card">
-  <h2>📶 WiFi</h2>
-  <p>Nom : MonWifi</p>
-  <p>Mot de passe : 12345678</p>
-</section>
+<main class="container">
 
-<section class="card">
-  <h2>🔑 Arrivée</h2>
-  <p>Check-in à partir de 15h</p>
-</section>
+  <div class="card" data-target="wifi">
+    <div class="card-content">
+      <span>📶 WiFi</span>
+    </div>
+  </div>
+
+  <div class="card" data-target="checkin">
+    <div class="card-content">
+      <span>🔑 Arrivée</span>
+    </div>
+  </div>
+
+  <div class="card" data-target="rules">
+    <div class="card-content">
+      <span>📋 Règles</span>
+    </div>
+  </div>
+
+  <div class="card" data-target="local">
+    <div class="card-content">
+      <span>📍 Bonnes adresses</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
