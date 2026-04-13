@@ -45,14 +45,12 @@
             
             <div class="card card-wifi" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
                 <div class="blur-overlay"></div>
-                
                 <div class="card-content card-normal">
                     <h3 class="card-title">WiFi</h3>
                     <div class="voir-fermer-action">
                         <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </div>
                 </div>
-
                 <div class="card-content card-details">
                     <div class="wifi-info">
                         <div class="info-group">
@@ -64,70 +62,65 @@
                             <span class="info-value" id="wifiPassword">Laperleboheme30</span>
                         </div>
                     </div>
-                    
                     <button id="copyBtn" class="copy-button">
-                        <i class="fa-regular fa-copy copy-icon"></i>
-                        Copier
+                        <i class="fa-regular fa-copy copy-icon"></i> Copier
                     </button>
                 </div>
             </div>
 
             <div class="card card-expandable" style="background-image: url('https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=600');">
                 <div class="blur-overlay"></div>
-    
                 <div class="card-content card-normal">
                     <h3 class="card-title">Accéder au logement</h3>
                     <div class="voir-fermer-action">
                         <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
                     </div>
                 </div>
-
-                <div class="card-content card-details scrollable-content">
+                <div class="card-content card-details">
                     <div class="access-container">
-            
-                <div class="access-row">
-                <div class="access-info">
-                    <span class="info-label">Digicode du bâtiment</span>
-                    <span class="info-value">123567B</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=100" alt="Digicode" class="thumb-img">
-            </div>
-
-            <div class="access-row">
-                <div class="access-info">
-                    <span class="info-label">Code boîte à clés</span>
-                    <span class="info-value">786524</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" alt="Boîte à clés" class="thumb-img">
-            </div>
-
-            <div class="access-gallery">
-                <span class="info-label">Accès au logement</span>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=200" alt="Immeuble">
-                        <span>Extérieur</span>
+                        <div class="access-row">
+                            <div class="access-info">
+                                <span class="info-label">Digicode du bâtiment</span>
+                                <span class="info-value">123567B</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=100" class="thumb-img" alt="Digicode">
+                        </div>
+                        <div class="access-row">
+                            <div class="access-info">
+                                <span class="info-label">Code boîte à clés</span>
+                                <span class="info-value">786524</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" class="thumb-img" alt="Boîte à clés">
+                        </div>
+                        <div class="access-gallery">
+                            <span class="info-label">Accès au logement</span>
+                            <div class="gallery-grid">
+                                <div class="gallery-item">
+                                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=200">
+                                    <span>Extérieur</span>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=200">
+                                    <span>Couloir</span>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=200">
+                                    <span>Porte d'entrée</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=200" alt="Couloir">
-                        <span>Couloir</span>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=200" alt="Porte">
-                        <span>Porte d'entrée</span>
-                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-            </div>
-
         </section>
 
         <footer class="footer">
             <p>Créé par <span class="highlight">Charles</span> et <span class="highlight">Anaïs</span></p>
         </footer>
+    </div>
 
+    <div id="imageOverlay" class="image-overlay">
+        <img id="enlargedImg" src="">
     </div>
 
     <script src="script.js"></script>
