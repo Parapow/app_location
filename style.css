@@ -44,20 +44,38 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .card-title { color: white; font-size: 1.5rem; font-weight: 700; }
 .voir-fermer-action { color: white; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
 
+/* Titre interne quand la carte est ouverte */
+.expanded-title {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
 /* Vue Détaillée */
 .card-details { padding: 25px; display: none; opacity: 0; }
 .card.active .card-details { display: block; opacity: 1; padding-bottom: 50px; }
+
 .info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-bottom: 4px; }
 .info-value { display: block; font-size: 1.3rem; font-weight: 800; color: white; }
 
-/* WiFi & Bouton Copier */
-.card-wifi.active .card-details { display: flex; align-items: center; gap: 20px; }
+/* WiFi Layout dynamique */
+.wifi-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .copy-button { background: transparent; border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; color: white; padding: 12px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 80px; transition: 0.2s; }
 
 /* Accès Logement */
 .access-container { display: flex; flex-direction: column; gap: 15px; }
 .access-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
 .thumb-img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
+
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 .gallery-item img { width: 100%; height: 70px; border-radius: 10px; object-fit: cover; border: 1px solid white; cursor: zoom-in; }
 .gallery-item span { font-size: 0.6rem; color: white; font-weight: 600; display: block; text-align: center; margin-top: 5px; }

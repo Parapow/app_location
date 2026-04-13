@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
-            // STOP SI : on clique sur une image, le bouton copier ou l'overlay
             if (e.target.tagName === 'IMG' || e.target.closest('#copyBtn') || e.target.closest('.image-overlay')) {
                 return;
             }
