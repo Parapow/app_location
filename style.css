@@ -137,7 +137,7 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 
 .info-value {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -190,6 +190,103 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 
 .card-wifi.active::after {
     opacity: 1; /* Apparition quand la carte est active */
+}
+
+/* --- Styles pour la Carte Accès Étendue --- */
+
+/* On crée une classe générique pour les cartes qui s'agrandissent */
+.card-expandable.active {
+    height: 550px; /* Double de la taille initiale + marge pour le contenu */
+    transform: scale(1.02);
+}
+
+/* Container interne pour l'accès */
+.access-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding-top: 10px;
+}
+
+/* Ligne avec texte à gauche et petite image à droite */
+.access-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.thumb-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Galerie Photos */
+.access-gallery {
+    margin-top: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.gallery-item span {
+    font-size: 0.6rem;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Permettre le défilement si le contenu dépasse sur petit écran */
+.scrollable-content {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* Ajustement des valeurs pour cette carte */
+.card-expandable.active .info-value {
+    font-size: 1.2rem; /* Légèrement plus petit pour que ça tienne sur une ligne */
+}
+
+/* On réutilise l'effet FERMER du wifi */
+.card-expandable::after {
+    content: "FERMER ∧";
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.7rem;
+    font-weight: 800;
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+}
+
+.card-expandable.active::after {
+    opacity: 1;
 }
 
 .footer {
