@@ -18,7 +18,7 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .filter-item { padding: 10px 18px; border: 1px solid #f0f0f0; border-radius: 35px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; color: #555; background: #fff; cursor: pointer; transition: all 0.3s; }
 .filter-item.active { background-color: #ff5a5f; color: white; border-color: #ff5a5f; box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3); }
 
-/* Cartes (Main Logic) */
+/* Cartes */
 .card { 
     width: 100%; 
     height: 190px; 
@@ -44,13 +44,13 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .card-title { color: white; font-size: 1.5rem; font-weight: 700; }
 .voir-fermer-action { color: white; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
 
-/* Titre interne quand la carte est ouverte */
+/* Titre interne ouvert */
 .expanded-title {
-    color: white;
+    color: #ffffff; /* Blanc pur */
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 35px; /* Plus d'espace sous le titre */
     width: 100%;
 }
 
@@ -58,24 +58,22 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .card-details { padding: 25px; display: none; opacity: 0; }
 .card.active .card-details { display: block; opacity: 1; padding-bottom: 50px; }
 
-.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-bottom: 4px; }
+.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 4px; }
 .info-value { display: block; font-size: 1.3rem; font-weight: 800; color: white; }
 
-/* WiFi Layout dynamique */
+/* WiFi Layout */
 .wifi-layout {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
-
 .copy-button { background: transparent; border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; color: white; padding: 12px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 80px; transition: 0.2s; }
 
 /* Accès Logement */
 .access-container { display: flex; flex-direction: column; gap: 15px; }
 .access-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
 .thumb-img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
-
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 .gallery-item img { width: 100%; height: 70px; border-radius: 10px; object-fit: cover; border: 1px solid white; cursor: zoom-in; }
 .gallery-item span { font-size: 0.6rem; color: white; font-weight: 600; display: block; text-align: center; margin-top: 5px; }
@@ -83,7 +81,7 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 /* Fermer indicator */
 .card.active::after { content: "FERMER ∧"; position: absolute; bottom: 15px; right: 25px; color: rgba(255,255,255,0.7); font-size: 0.7rem; font-weight: 800; z-index: 3; }
 
-/* Image Zoom (Lightbox) Plein Écran */
+/* Lightbox HD Plein Écran */
 .image-overlay {
     position: fixed;
     top: 0; left: 0;
