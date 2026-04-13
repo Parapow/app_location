@@ -10,7 +10,7 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .location-link { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px; justify-content: center; transition: opacity 0.2s; }
 .location-link i { color: #ff5a5f; }
 
-/* Explorer Section */
+/* Explorer */
 .section { margin-bottom: 30px; }
 .section-title { font-size: 0.75rem; font-weight: 700; color: #ccc; margin-bottom: 15px; letter-spacing: 1.5px; }
 .filter-bar { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
@@ -47,7 +47,6 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 /* Vue Détaillée */
 .card-details { padding: 25px; display: none; opacity: 0; }
 .card.active .card-details { display: block; opacity: 1; padding-bottom: 50px; }
-
 .info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-bottom: 4px; }
 .info-value { display: block; font-size: 1.3rem; font-weight: 800; color: white; }
 
@@ -59,7 +58,6 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .access-container { display: flex; flex-direction: column; gap: 15px; }
 .access-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
 .thumb-img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
-
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 .gallery-item img { width: 100%; height: 70px; border-radius: 10px; object-fit: cover; border: 1px solid white; cursor: zoom-in; }
 .gallery-item span { font-size: 0.6rem; color: white; font-weight: 600; display: block; text-align: center; margin-top: 5px; }
@@ -67,10 +65,32 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 /* Fermer indicator */
 .card.active::after { content: "FERMER ∧"; position: absolute; bottom: 15px; right: 25px; color: rgba(255,255,255,0.7); font-size: 0.7rem; font-weight: 800; z-index: 3; }
 
-/* Image Zoom (Lightbox) */
-.image-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 99999; display: none; justify-content: center; align-items: center; cursor: zoom-out; }
-.image-overlay.active { display: flex; }
-.image-overlay img { max-width: 90%; max-height: 80%; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+/* Image Zoom (Lightbox) Plein Écran */
+.image-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
+    z-index: 99999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image-overlay.active { display: flex; opacity: 1; }
+.image-overlay img {
+    max-width: 98vw;
+    max-height: 96vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.image-overlay.active img { transform: scale(1); }
 
 /* Footer */
 .footer { text-align: center; padding: 30px 0; font-size: 0.8rem; color: #bbb; font-weight: 600; }
