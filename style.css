@@ -58,8 +58,12 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 .card-details { padding: 25px; display: none; opacity: 0; }
 .card.active .card-details { display: block; opacity: 1; padding-bottom: 50px; }
 
-.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 4px; }
+.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 8px; }
+.info-label i { margin-right: 5px; font-size: 0.8rem; }
 .info-value { display: block; font-size: 1.3rem; font-weight: 800; color: white; }
+
+/* Style spécifique pour le texte des règles */
+.rule-text { display: block; font-size: 0.95rem; font-weight: 500; color: #ffffff; line-height: 1.4; }
 
 /* WiFi Layout */
 .wifi-layout {
@@ -70,10 +74,11 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 }
 .copy-button { background: transparent; border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; color: white; padding: 12px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 80px; transition: 0.2s; }
 
-/* Accès Logement */
+/* Accès Logement & Règlement */
 .access-container { display: flex; flex-direction: column; gap: 15px; }
 .access-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
 .thumb-img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
+
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 .gallery-item img { width: 100%; height: 70px; border-radius: 10px; object-fit: cover; border: 1px solid white; cursor: zoom-in; }
 .gallery-item span { font-size: 0.6rem; color: white; font-weight: 600; display: block; text-align: center; margin-top: 5px; }
@@ -81,14 +86,14 @@ body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: 
 /* Fermer indicator */
 .card.active::after { content: "FERMER ∧"; position: absolute; bottom: 15px; right: 25px; color: rgba(255,255,255,0.7); font-size: 0.7rem; font-weight: 800; z-index: 3; }
 
-/* Lightbox HD Plein Écran (MODIFIÉ POUR LE FLOU) */
+/* Lightbox HD Plein Écran */
 .image-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Plus transparent pour voir derrière */
-    backdrop-filter: blur(10px); /* L'effet de flou sur l'arrière-plan */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
     z-index: 99999;
     display: none;
     justify-content: center;
