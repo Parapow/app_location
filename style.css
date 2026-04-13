@@ -2,119 +2,111 @@
 body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #333; -webkit-font-smoothing: antialiased; }
 .container { max-width: 500px; margin: 0 auto; padding: 20px; }
 
-/* Header & Location */
+/* --- HEADER --- */
 .header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
 .header h1 { font-size: 3rem; font-weight: 800; color: #1a1a1a; }
 .header .subtitle { font-size: 1.3rem; color: #777; margin-top: -5px; }
 .location { margin-top: 15px; font-size: 0.85rem; color: #aaa; text-align: center; }
-.location-link { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px; justify-content: center; transition: opacity 0.2s; }
+.location-link { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px; justify-content: center; }
 .location-link i { color: #ff5a5f; }
 
-/* Explorer */
+/* --- FILTRES (NAVIGATION) --- */
 .section { margin-bottom: 30px; }
 .section-title { font-size: 0.75rem; font-weight: 700; color: #ccc; margin-bottom: 15px; letter-spacing: 1.5px; }
 .filter-bar { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
-.filter-bar::-webkit-scrollbar { display: none; }
-.filter-item { padding: 10px 18px; border: 1px solid #f0f0f0; border-radius: 35px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; color: #555; background: #fff; cursor: pointer; transition: all 0.3s; }
-.filter-item.active { background-color: #ff5a5f; color: white; border-color: #ff5a5f; box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3); }
 
-/* Cartes */
-.card { 
-    width: 100%; 
-    height: 190px; 
-    border-radius: 25px; 
-    margin-bottom: 20px; 
-    background-size: cover; 
-    background-position: center; 
-    position: relative; 
-    overflow: hidden; 
+.filter-item { 
+    padding: 10px 18px; 
+    border: 1px solid #f0f0f0; 
+    border-radius: 35px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    color: #555; 
+    background: #fff; 
     cursor: pointer; 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    transition: 0.3s; 
+    white-space: nowrap; 
 }
-.card.active { transform: scale(1.02); height: auto; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
 
-.blur-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); transition: all 0.4s; z-index: 1; }
+/* Couleurs des boutons Actifs */
+.filter-item.active { 
+    background-color: #ff5a5f; 
+    color: white; 
+    border-color: #ff5a5f; 
+    box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3); 
+}
+.filter-item.active-resto { 
+    background-color: #ff9f43; 
+    color: white; 
+    border-color: #ff9f43; 
+    box-shadow: 0 4px 12px rgba(255, 159, 67, 0.3); 
+}
+.filter-item.active-bar { 
+    background-color: #3498db; 
+    color: white; 
+    border-color: #3498db; 
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3); 
+}
+
+/* --- CARTES INFOS (ACCUEIL) --- */
+.card { width: 100%; height: 190px; border-radius: 25px; margin-bottom: 20px; background-size: cover; background-position: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.card.active { transform: scale(1.02); height: auto; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.blur-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index: 1; transition: 0.4s; }
 .card.active .blur-overlay { backdrop-filter: blur(12px); background-color: rgba(0,0,0,0.65); }
 
-.card-content { position: relative; z-index: 2; }
+.card-content { position: relative; z-index: 2; color: white; }
 .card-normal { padding: 25px; display: flex; justify-content: space-between; align-items: flex-end; height: 190px; }
 .card.active .card-normal { display: none; }
-.card-title { color: white; font-size: 1.5rem; font-weight: 700; }
-.voir-fermer-action { color: white; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
-
-/* Titre interne ouvert */
-.expanded-title {
-    color: #ffffff; 
-    font-size: 1.6rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 35px; 
-    width: 100%;
-}
-
-/* Vue Détaillée */
 .card-details { padding: 25px; display: none; opacity: 0; }
 .card.active .card-details { display: block; opacity: 1; padding-bottom: 50px; }
 
-.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 8px; }
-.info-label i { margin-right: 5px; font-size: 0.8rem; }
-.info-value { display: block; font-size: 1.3rem; font-weight: 800; color: white; }
-
-/* Style spécifique pour le texte des règles */
-.rule-text { display: block; font-size: 0.95rem; font-weight: 500; color: #ffffff; line-height: 1.4; }
-
-/* WiFi Layout */
-.wifi-layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-.copy-button { background: transparent; border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; color: white; padding: 12px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 80px; transition: 0.2s; }
-
-/* Accès Logement & Règlement */
-.access-container { display: flex; flex-direction: column; gap: 15px; }
+.wifi-layout { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.info-group { margin-bottom: 15px; }
+.info-label { display: block; font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 5px; }
+.info-value { font-size: 1.2rem; font-weight: 800; color: white; }
+.copy-button { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 12px; color: white; padding: 10px 15px; cursor: pointer; font-weight: 700; font-size: 0.8rem; }
+.access-container { display: flex; flex-direction: column; gap: 12px; }
 .access-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
-.thumb-img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
+.thumb-img { width: 50px; height: 50px; border-radius: 10px; object-fit: cover; border: 2px solid white; cursor: zoom-in; }
 
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-.gallery-item img { width: 100%; height: 70px; border-radius: 10px; object-fit: cover; border: 1px solid white; cursor: zoom-in; }
-.gallery-item span { font-size: 0.6rem; color: white; font-weight: 600; display: block; text-align: center; margin-top: 5px; }
+/* --- CARTE LEAFLET --- */
+#map { width: 100%; height: 450px; border-radius: 25px; z-index: 1; border: 1px solid #eee; overflow: hidden; }
+.leaflet-control-attribution { display: none !important; }
 
-/* Fermer indicator */
-.card.active::after { content: "FERMER ∧"; position: absolute; bottom: 15px; right: 25px; color: rgba(255,255,255,0.7); font-size: 0.7rem; font-weight: 800; z-index: 3; }
-
-/* Lightbox HD Plein Écran */
-.image-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.5); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    z-index: 99999;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* --- PINS --- */
+.pulse-icon { border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; }
+.pin-home { background: #ff5a5f; animation: pulse-home 2s infinite; }
+@keyframes pulse-home {
+    0% { box-shadow: 0 0 0 0 rgba(255, 90, 95, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 90, 95, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 90, 95, 0); }
 }
-.image-overlay.active { display: flex; opacity: 1; }
-.image-overlay img {
-    max-width: 98vw;
-    max-height: 96vh;
-    width: auto; height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-.image-overlay.active img { transform: scale(1); }
+.pin-resto { background: #ff9f43; cursor: pointer; }
+.pin-bar { background: #3498db; cursor: pointer; }
 
-/* Footer */
-.footer { text-align: center; padding: 30px 0; font-size: 0.8rem; color: #bbb; font-weight: 600; }
-.footer .highlight { color: #ff5a5f; font-weight: 700; }
+/* --- MODALE --- */
+.resto-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); z-index: 100000; display: none; justify-content: center; align-items: center; padding: 20px; }
+.resto-modal.active { display: flex; }
+.resto-card-detail { background: white; width: 100%; max-width: 350px; border-radius: 30px; padding: 30px; position: relative; text-align: center; }
+.resto-type { font-size: 0.75rem; font-weight: 800; color: #ff9f43; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.resto-card-detail h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
+.resto-info-line { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 12px; color: #666; font-size: 0.9rem; padding-left: 10px; text-align: left; }
+.resto-info-line i { color: #ff9f43; width: 20px; text-align: center; }
+
+/* Couleurs spécifiques modale Bar */
+.is-bar .resto-type { color: #3498db; }
+.is-bar .resto-info-line i { color: #3498db; }
+
+.btn-maps { margin-top: 20px; width: 100%; padding: 15px; background: #1a1a1a; color: white; border-radius: 15px; text-decoration: none; font-weight: 700; display: inline-block; }
+.close-modal { position: absolute; top: 20px; right: 20px; font-size: 1.2rem; color: #ccc; cursor: pointer; }
+
+/* --- OVERLAY ZOOM IMAGE --- */
+.image-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); z-index: 99999; display: none; justify-content: center; align-items: center; }
+.image-overlay.active { display: flex; }
+.image-overlay img { max-width: 90%; border-radius: 15px; }
+
+.footer { text-align: center; padding: 30px 0; font-size: 0.8rem; color: #bbb; }
+.footer .highlight { color: #ff5a5f; }

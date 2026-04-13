@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livret d'accueil - La Perle Bohème</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +16,7 @@
             <h1>Bienvenue</h1>
             <p class="subtitle">La Perle Bohème</p>
             <div class="location">
-                <a href="http://maps.google.com/maps?q=1+Avenue+des+Champs-Élysées,+Paris,+France" target="_blank" class="location-link">
+                <a href="http://maps.google.com/?q=503+Avenue+du+Palais+de+la+Mer,30240+Le+Grau-du-Roi" target="_blank" class="location-link">
                     <i class="fa-solid fa-location-dot"></i> 503 Avenue du Palais de la Mer, 30240 Le Grau-du-Roi
                 </a>
             </div>
@@ -24,150 +25,74 @@
         <section class="section">
             <h2 class="section-title">EXPLORER</h2>
             <div class="filter-bar">
-                <div class="filter-item active">
-                    <span class="icon-container"><i class="fa-solid fa-ticket"></i></span> 
-                    Activités
-                    <span class="arrow">›</span>
+                <div class="filter-item active" id="btn-accueil">
+                    <span class="icon-container"><i class="fa-solid fa-house"></i></span> Accueil
                 </div>
-                <div class="filter-item">
-                    <span class="icon-container"><i class="fa-solid fa-utensils"></i></span> 
-                    Restaurants
+                <div class="filter-item" id="btn-restaurants">
+                    <span class="icon-container"><i class="fa-solid fa-utensils"></i></span> Restaurants
                 </div>
-                <div class="filter-item">
-                    <span class="icon-container"><i class="fa-solid fa-wine-glass"></i></span> 
-                    Bars
+                <div class="filter-item" id="btn-bars">
+                    <span class="icon-container"><i class="fa-solid fa-martini-glass-citrus"></i></span> Bars
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">INFORMATIONS UTILES</h2>
+            <h2 class="section-title" id="dynamic-title">INFORMATIONS UTILES</h2>
             
-            <div class="card card-wifi" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
-                <div class="blur-overlay"></div>
-                <div class="card-content card-normal">
-                    <h3 class="card-title">WiFi</h3>
-                    <div class="voir-fermer-action">
-                        <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
-                    </div>
-                </div>
-                <div class="card-content card-details">
-                    <h2 class="expanded-title">WiFi</h2>
-                    <div class="wifi-layout">
-                        <div class="wifi-info">
-                            <div class="info-group">
-                                <span class="info-label">RÉSEAU</span>
-                                <span class="info-value">La Perle Bohème</span>
-                            </div>
-                            <div class="info-group">
-                                <span class="info-label">MOT DE PASSE</span>
-                                <span class="info-value" id="wifiPassword">Laperleboheme30</span>
-                            </div>
+            <div id="info-cards-container">
+                <div class="card card-wifi" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content card-normal">
+                        <h3 class="card-title">WiFi</h3>
+                        <div class="voir-fermer-action">
+                            <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
                         </div>
-                        <button id="copyBtn" class="copy-button">
-                            <i class="fa-regular fa-copy copy-icon"></i> Copier
-                        </button>
+                    </div>
+                    <div class="card-content card-details">
+                        <h2 class="expanded-title">WiFi</h2>
+                        <div class="wifi-layout">
+                            <div class="wifi-info">
+                                <div class="info-group">
+                                    <span class="info-label">RÉSEAU</span>
+                                    <span class="info-value">La Perle Bohème</span>
+                                </div>
+                                <div class="info-group">
+                                    <span class="info-label">MOT DE PASSE</span>
+                                    <span class="info-value" id="wifiPassword">Laperleboheme30</span>
+                                </div>
+                            </div>
+                            <button id="copyBtn" class="copy-button"><i class="fa-regular fa-copy"></i> Copier</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card card-expandable" style="background-image: url('https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=600');">
-                <div class="blur-overlay"></div>
-                <div class="card-content card-normal">
-                    <h3 class="card-title">Accéder au logement</h3>
-                    <div class="voir-fermer-action">
-                        <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                <div class="card card-expandable" style="background-image: url('https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=600');">
+                    <div class="blur-overlay"></div>
+                    <div class="card-content card-normal">
+                        <h3 class="card-title">Accéder au logement</h3>
+                        <div class="voir-fermer-action">
+                            <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="card-content card-details">
-                    <h2 class="expanded-title">Accéder au logement</h2>
-                    <div class="access-container">
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label">Digicode du bâtiment</span>
-                                <span class="info-value">123567B</span>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=200" 
-                                 data-fullsrc="https://images.unsplash.com/photo-1558002038-1055907df827?w=1600"
-                                 class="thumb-img" alt="Digicode">
-                        </div>
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label">Code boîte à clés</span>
-                                <span class="info-value">786524</span>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" 
-                                 data-fullsrc="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600"
-                                 class="thumb-img" alt="Boîte à clés">
-                        </div>
-                        <div class="access-gallery">
-                            <span class="info-label">Accès au logement</span>
-                            <div class="gallery-grid">
-                                <div class="gallery-item">
-                                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=200"
-                                         data-fullsrc="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600">
-                                    <span>Extérieur</span>
+                    <div class="card-content card-details">
+                        <h2 class="expanded-title">Accéder au logement</h2>
+                        <div class="access-container">
+                            <div class="access-row">
+                                <div class="access-info">
+                                    <span class="info-label">Digicode du bâtiment</span>
+                                    <span class="info-value">123567B</span>
                                 </div>
-                                <div class="gallery-item">
-                                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=200"
-                                         data-fullsrc="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1600">
-                                    <span>Couloir</span>
-                                </div>
-                                <div class="gallery-item">
-                                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=200"
-                                         data-fullsrc="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1600">
-                                    <span>Porte</span>
-                                </div>
+                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=200" class="thumb-img">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card card-rules" style="background-image: url('https://images.unsplash.com/photo-1582037928869-677559467406?w=600');">
-                <div class="blur-overlay"></div>
-                <div class="card-content card-normal">
-                    <h3 class="card-title">Règlement intérieur</h3>
-                    <div class="voir-fermer-action">
-                        <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
-                    </div>
-                </div>
-                <div class="card-content card-details">
-                    <h2 class="expanded-title">Règlement intérieur</h2>
-                    <div class="access-container">
-                        
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label"><i class="fa-solid fa-smoking-ban"></i> TABAC</span>
-                                <span class="rule-text">Il est strictement interdit de fumer à l'intérieur du logement.</span>
-                            </div>
-                        </div>
-
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label"><i class="fa-solid fa-paw"></i> ANIMAUX</span>
-                                <span class="rule-text">Nos amis les animaux ne sont pas acceptés dans l'appartement.</span>
-                            </div>
-                        </div>
-
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label"><i class="fa-solid fa-volume-low"></i> NUISANCES</span>
-                                <span class="rule-text">Merci de respecter le voisinage et d'éviter les bruits excessifs après 22h.</span>
-                            </div>
-                        </div>
-
-                        <div class="access-row">
-                            <div class="access-info">
-                                <span class="info-label"><i class="fa-solid fa-users-slash"></i> FÊTES</span>
-                                <span class="rule-text">Les fêtes et rassemblements sont formellement interdits.</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <div id="map-container" style="display: none;">
+                <div id="map"></div>
             </div>
-
         </section>
 
         <footer class="footer">
@@ -175,10 +100,20 @@
         </footer>
     </div>
 
-    <div id="imageOverlay" class="image-overlay">
-        <img id="enlargedImg" src="" alt="Zoom">
+    <div id="restoModal" class="resto-modal">
+        <div class="resto-card-detail">
+            <i class="fa-solid fa-xmark close-modal" id="closeResto"></i>
+            <span id="modalType" class="resto-type">Cuisine</span>
+            <h3 id="modalName">Nom</h3>
+            <div class="resto-info-line"><i class="fa-solid fa-location-dot"></i> <span id="modalAddress"></span></div>
+            <div class="resto-info-line"><i class="fa-solid fa-walking"></i> <span id="modalDist"></span></div>
+            <a href="#" id="modalMapsLink" target="_blank" class="btn-maps">Ouvrir dans Maps</a>
+        </div>
     </div>
 
+    <div id="imageOverlay" class="image-overlay"><img id="enlargedImg" src=""></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
