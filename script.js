@@ -59,11 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const pass = document.getElementById('wifiPassword').textContent;
             navigator.clipboard.writeText(pass).then(() => {
                 const original = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                copyBtn.innerHTML = '<i class="fa-solid fa-check"> Copié !</i>';
                 copyBtn.style.borderColor = "#ff5a5f";
+                copyBtn.style.color = "#ff5a5f";
                 setTimeout(() => {
                     copyBtn.innerHTML = original;
                     copyBtn.style.borderColor = "rgba(255,255,255,0.4)";
+                    copyBtn.style.color = "white";
                 }, 2000);
             });
         });
