@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Filtres Explorer
     const filters = document.querySelectorAll('.filter-item');
     filters.forEach(f => {
-        f.addEventListener('click', () => {
+        f.addEventListener('click', (e) => {
             filters.forEach(x => x.classList.remove('active'));
             f.classList.add('active');
         });
@@ -13,11 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
-            if (e.target.closest('#copyBtn') || e.target.tagName === 'IMG') return;
+            // STOP SI : on clique sur une image, le bouton copier ou l'overlay de zoom
+            if (e.target.tagName === 'IMG' || e.target.closest('#copyBtn') || e.target.closest('.image-overlay')) {
+                return;
+            }
             
             const wasActive = card.classList.contains('active');
+            
+            // Fermer toutes les cartes avant d'ouvrir la nouvelle
             cards.forEach(c => c.classList.remove('active'));
-            if (!wasActive) card.classList.add('active');
+            
+            // Si la carte n'était pas active, on l'ouvre
+            if (!wasActive) {
+                card.classList.add('active');
+            }
         });
     });
 
@@ -28,25 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clickableImgs.forEach(img => {
         img.addEventListener('click', (e) => {
-            e.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation(); // Bloque la propagation du clic vers la carte (parent)
+            
             enlargedImg.src = img.src;
             overlay.classList.add('active');
         });
     });
 
-    overlay.addEventListener('click', () => {
+    // Fermer l'overlay quand on clique n'importe où dessus
+    overlay.addEventListener('click', (e) => {
+        e.stopPropagation();
         overlay.classList.remove('active');
     });
 
     // 4. Bouton Copier WiFi
     const copyBtn = document.getElementById('copyBtn');
     if(copyBtn) {
-        copyBtn.addEventListener('click', () => {
+        copyBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche de fermer la carte
             const pass = document.getElementById('wifiPassword').textContent;
             navigator.clipboard.writeText(pass).then(() => {
                 const original = copyBtn.innerHTML;
                 copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                setTimeout(() => copyBtn.innerHTML = original, 2000);
+                copyBtn.style.borderColor = "#ff5a5f";
+                setTimeout(() => {
+                    copyBtn.innerHTML = original;
+                    copyBtn.style.borderColor = "rgba(255,255,255,0.4)";
+                }, 2000);
             });
         });
     }
