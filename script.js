@@ -1,31 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Gestion des filtres (Activités, Restaurants, Bars)
+    // Gestion du clic sur les filtres
     const filters = document.querySelectorAll('.filter-item');
 
     filters.forEach(filter => {
         filter.addEventListener('click', () => {
-            // On retire la classe 'active' de tous les filtres
+            // Retire la classe active de tous les éléments
             filters.forEach(f => f.classList.remove('active'));
-            // On l'ajoute sur celui qui a été cliqué
+            // L'ajoute sur l'élément cliqué
             filter.classList.add('active');
             
-            console.log("Filtre sélectionné :", filter.textContent.trim());
-            // Ici, tu pourras plus tard ajouter un filtrage réel des adresses
+            // Note: On pourrait ici ajouter une logique de redirection
+            // window.location.href = filter.innerText.toLowerCase() + ".html";
         });
     });
 
-    // 2. Animation au clic sur les cartes
+    // Animation au toucher pour les cartes (effet mobile native)
     const cards = document.querySelectorAll('.card');
-
     cards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.style.transform = "scale(0.98)";
-            setTimeout(() => {
-                card.style.transform = "scale(1)";
-                // Redirection vers la page spécifique (exemple: wifi.html)
-                // window.location.href = card.getAttribute('data-link');
-            }, 100);
+        card.addEventListener('touchstart', () => {
+            card.style.transform = "scale(0.96)";
+        });
+        card.addEventListener('touchend', () => {
+            card.style.transform = "scale(1)";
         });
     });
 });

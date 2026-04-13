@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livret d'accueil - La Perle Bohème</title>
+    <title>Livret d'accueil - Chez Lulu</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
             <h1>Bienvenue</h1>
             <p class="subtitle">La Perle Bohème</p>
             <div class="location">
-                <span class="icon-pin">📍</span> 503 Avenue du Palais de la Mer, 30240 Le Grau-du-Roi
+                <i class="fa-solid fa-location-dot"></i> Insérer l'adresse ici
             </div>
         </header>
 
@@ -22,13 +23,17 @@
             <h2 class="section-title">EXPLORER</h2>
             <div class="filter-bar">
                 <div class="filter-item active">
-                    <span class="filter-icon">🎫</span> Activités
+                    <span class="icon-container"><i class="fa-solid fa-ticket"></i></span> 
+                    Activités
+                    <span class="arrow">›</span>
                 </div>
                 <div class="filter-item">
-                    <span class="filter-icon">🍽️</span> Restaurants
+                    <span class="icon-container"><i class="fa-solid fa-utensils"></i></span> 
+                    Restaurants
                 </div>
                 <div class="filter-item">
-                    <span class="filter-icon">🍷</span> Bars
+                    <span class="icon-container"><i class="fa-solid fa-wine-glass"></i></span> 
+                    Bars
                 </div>
             </div>
         </section>
@@ -36,21 +41,21 @@
         <section class="section">
             <h2 class="section-title">VOTRE LOGEMENT</h2>
             
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=600');">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
                 <div class="card-content">
                     <h3 class="card-title">WiFi</h3>
                     <span class="voir-link">VOIR ∨</span>
                 </div>
             </div>
 
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600');">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600');">
                 <div class="card-content">
                     <h3 class="card-title">A votre arrivée</h3>
                     <span class="voir-link">VOIR ∨</span>
                 </div>
             </div>
 
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=600');">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600');">
                 <div class="card-content">
                     <h3 class="card-title">Avant votre départ</h3>
                     <span class="voir-link">VOIR ∨</span>
@@ -60,6 +65,5 @@
     </div>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
