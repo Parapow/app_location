@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livret d'accueil - La Perle Bohème</title>
+    <title>Livret d'accueil - Chez Lulu</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,10 +13,10 @@
     <div class="container">
         <header class="header">
             <h1>Bienvenue</h1>
-            <p class="subtitle">La Perle Bohème</p>
+            <p class="subtitle">Chez lulu</p>
             <div class="location">
-                <a href="https://www.google.com/maps/search/?api=1&query=43.52718496487459,4.143293213880302" target="_blank" class="location-link">
-                    <i class="fa-solid fa-location-dot"></i> 503 Avenue du Palais de la Mer, 30240 Le Grau-du-Roi
+                <a href="http://maps.google.com/maps?q=1+Avenue+des+Champs-Élysées,+Paris,+France" target="_blank" class="location-link">
+                    <i class="fa-solid fa-location-dot"></i> 1 Avenue des Champs-Élysées, Paris, France
                 </a>
             </div>
         </header>
@@ -43,10 +43,32 @@
         <section class="section">
             <h2 class="section-title">VOTRE LOGEMENT</h2>
             
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
-                <div class="card-content">
+            <div class="card card-wifi" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
+                <div class="blur-overlay"></div>
+                
+                <div class="card-content card-normal">
                     <h3 class="card-title">WiFi</h3>
-                    <span class="voir-link">VOIR ∨</span>
+                    <div class="voir-fermer-action">
+                        <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                    </div>
+                </div>
+
+                <div class="card-content card-details">
+                    <div class="wifi-info">
+                        <div class="info-group">
+                            <span class="info-label">RÉSEAU</span>
+                            <span class="info-value">WifiAirbooky</span>
+                        </div>
+                        <div class="info-group">
+                            <span class="info-label">MOT DE PASSE</span>
+                            <span class="info-value" id="wifiPassword">PassAirbooky</span>
+                        </div>
+                    </div>
+                    
+                    <button id="copyBtn" class="copy-button">
+                        <i class="fa-regular fa-copy copy-icon"></i>
+                        Copier
+                    </button>
                 </div>
             </div>
 
