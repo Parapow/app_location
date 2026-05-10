@@ -1,119 +1,232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livret d'accueil - La Perle Bohème</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>La Perle Bohème</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <div class="container">
+<div class="container" id="main-container">
+
+    <!-- ========== ACCUEIL ========== -->
+    <div id="home-view">
+
         <header class="header">
-            <h1>Bienvenue</h1>
-            <p class="subtitle">La Perle Bohème</p>
-            <div class="location">
-                <a href="http://maps.google.com/?q=503+Avenue+du+Palais+de+la+Mer,30240+Le+Grau-du-Roi" target="_blank" class="location-link">
-                    <i class="fa-solid fa-location-dot"></i> 503 Avenue du Palais de la Mer, 30240 Le Grau-du-Roi
-                </a>
+            <div class="carousel-container">
+
+                <button class="carousel-arrow left" id="carousel-prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow right" id="carousel-next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200" alt="Salon"/>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200" alt="Cuisine"/>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200" alt="Chambre"/>
+                    </div>
+                </div>
+
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+                    <h1>La Bohème du Grau</h1>
+                    <div class="hero-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>503 Avenue du Palais de la Mer, 30240 Le Grau-du-Roi</span>
+                    </div>
+                </div>
+
             </div>
         </header>
 
-        <section class="section">
-            <h2 class="section-title">EXPLORER</h2>
-            <div class="filter-bar">
-                <div class="filter-item active" id="btn-accueil">
-                    <span class="icon-container"><i class="fa-solid fa-house"></i></span> Accueil
-                </div>
-                <div class="filter-item" id="btn-restaurants">
-                    <span class="icon-container"><i class="fa-solid fa-utensils"></i></span> Restaurants
-                </div>
-                <div class="filter-item" id="btn-bars">
-                    <span class="icon-container"><i class="fa-solid fa-martini-glass-citrus"></i></span> Bars
-                </div>
+        <!-- Message de bienvenue (rétractable) -->
+        <div class="welcome-box" id="welcome-box">
+            <div class="welcome-header">
+                <h2>Bienvenue chez vous 👋</h2>
+                <button class="welcome-toggle" id="welcome-toggle">
+                    <i class="fa-solid fa-chevron-up"></i>
+                </button>
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title" id="dynamic-title">INFORMATIONS UTILES</h2>
-            
-            <div id="info-cards-container">
-                <div class="card card-wifi" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600');">
-                    <div class="blur-overlay"></div>
-                    <div class="card-content card-normal">
-                        <h3 class="card-title">WiFi</h3>
-                        <div class="voir-fermer-action">
-                            <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
-                        </div>
-                    </div>
-                    <div class="card-content card-details">
-                        <h2 class="expanded-title">WiFi</h2>
-                        <div class="wifi-layout">
-                            <div class="wifi-info">
-                                <div class="info-group">
-                                    <span class="info-label">RÉSEAU</span>
-                                    <span class="info-value">La Perle Bohème</span>
-                                </div>
-                                <div class="info-group">
-                                    <span class="info-label">MOT DE PASSE</span>
-                                    <span class="info-value" id="wifiPassword">Laperleboheme30</span>
-                                </div>
-                            </div>
-                            <button id="copyBtn" class="copy-button"><i class="fa-regular fa-copy"></i> Copier</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-expandable" style="background-image: url('https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=600');">
-                    <div class="blur-overlay"></div>
-                    <div class="card-content card-normal">
-                        <h3 class="card-title">Accéder au logement</h3>
-                        <div class="voir-fermer-action">
-                            <span class="action-text">VOIR</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
-                        </div>
-                    </div>
-                    <div class="card-content card-details">
-                        <h2 class="expanded-title">Accéder au logement</h2>
-                        <div class="access-container">
-                            <div class="access-row">
-                                <div class="access-info">
-                                    <span class="info-label">Digicode du bâtiment</span>
-                                    <span class="info-value">123567B</span>
-                                </div>
-                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=200" class="thumb-img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="welcome-content">
+                <p>
+                    Bienvenue dans votre studio chic au bord de la mer ! 🏡
+                    Déconnectez-vous, respirez, profitez de l'air marin autour de vous.
+                    La plage est à 2 minutes à pieds.
+                </p>
             </div>
-
-            <div id="map-container" style="display: none;">
-                <div id="map"></div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <p>Créé par <span class="highlight">Charles</span> et <span class="highlight">Anaïs</span></p>
-        </footer>
-    </div>
-
-    <div id="restoModal" class="resto-modal">
-        <div class="resto-card-detail">
-            <i class="fa-solid fa-xmark close-modal" id="closeResto"></i>
-            <span id="modalType" class="resto-type">Cuisine</span>
-            <h3 id="modalName">Nom</h3>
-            <div class="resto-info-line"><i class="fa-solid fa-location-dot"></i> <span id="modalAddress"></span></div>
-            <div class="resto-info-line"><i class="fa-solid fa-walking"></i> <span id="modalDist"></span></div>
-            <a href="#" id="modalMapsLink" target="_blank" class="btn-maps">Ouvrir dans Maps</a>
         </div>
+
+        <!-- Cartes d'informations -->
+        <section class="section">
+            <h2 class="section-title">Informations utiles</h2>
+
+            <div id="info-cards-container">
+
+                <div class="card" data-id="wifi"
+                    style="background-image:url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">WiFi</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+                <div class="card" data-id="acces"
+                    style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">Accéder au logement</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+                <div class="card" data-id="reglement"
+                    style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">Règlement intérieur</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+                <div class="card" data-id="arrivee"
+                    style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">À votre arrivée</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+                <div class="card" data-id="depart"
+                    style="background-image:url('https://images.unsplash.com/photo-1531315630201-bb15abeb1653?w=600')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">À votre départ</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+                <div class="card" data-id="urgence"
+                    style="background-image:url('https://images.unsplash.com/photo-1516589174422-b4221442435a?w=600')">
+                    <div class="card-overlay"></div>
+                    <span class="card-label">Numéros d'urgence</span>
+                    <span class="card-action">VOIR ></span>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /home-view -->
+
+
+    <!-- ========== GUIDES D'UTILISATION ========== -->
+    <div id="guides-view" style="display:none;">
+        <div class="guides-header"
+            style="background-image:url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800')">
+            <div class="banner-overlay"></div>
+            <h2>Guides d'utilisation</h2>
+        </div>
+
+        <div id="guides-content-area">
+            <p class="guides-description">Comment utiliser les équipements du logement</p>
+            <div class="guides-list"></div>
+        </div>
+    </div><!-- /guides-view -->
+
+
+    <!-- ========== VUE FOCUS (détail d'une carte ou d'un guide) ========== -->
+    <div id="focus-view" style="display:none;">
+
+        <button id="back-button" class="back-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div id="focus-banner">
+            <div class="banner-overlay"></div>
+            <h2 id="focus-title-inner">Titre</h2>
+        </div>
+
+        <div id="focus-content-inner"></div>
+
+    </div><!-- /focus-view -->
+
+
+    <!-- ========== CARTE INTERACTIVE ========== -->
+    <div id="map-view" style="display:none;">
+
+        <div class="map-tabs">
+            <button class="map-tab active" data-type="resto">Restaurants</button>
+            <button class="map-tab" data-type="bar">Bars</button>
+            <button class="map-tab" data-type="activity">Activités</button>
+            <button class="map-tab" data-type="parking">Parkings</button>
+            <button class="map-tab" data-type="shop">Magasins</button>
+        </div>
+
+        <div id="map"></div>
+
+    </div><!-- /map-view -->
+
+</div><!-- /container -->
+
+
+<!-- ========== OVERLAY PHOTO PLEIN ÉCRAN ========== -->
+<div id="fullscreen-overlay" class="fullscreen-photo">
+    <img id="fullscreen-img" src="" alt="Photo plein écran"/>
+</div>
+
+
+<!-- ========== POPUP BULLE (restaurant / bar / activité) ========== -->
+<div id="pinPopup" class="pin-popup" style="display:none;">
+    <i class="fa-solid fa-xmark pin-popup-close" id="closePopup"></i>
+    <span id="popupType" class="popup-type">Cuisine</span>
+    <h3 id="popupName">Nom</h3>
+    <div class="popup-address">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="popupAddress"></span>
+    </div>
+    <a id="popupMapsLink" href="#" target="_blank" class="btn-maps">
+        Ouvrir dans Maps
+    </a>
+    <div class="pin-popup-arrow"></div>
+</div>
+
+
+<!-- ========== NAVIGATION BAS DE PAGE ========== -->
+<nav class="bottom-nav">
+
+    <div class="nav-item active" id="btn-accueil">
+        <div class="nav-circle">
+            <i class="fa-solid fa-house"></i>
+        </div>
+        <span>Accueil</span>
     </div>
 
-    <div id="imageOverlay" class="image-overlay"><img id="enlargedImg" src=""></div>
+    <div class="nav-item" id="btn-guides">
+        <div class="nav-circle">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <span>Guides</span>
+    </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+    <div class="nav-item" id="btn-map">
+        <div class="nav-circle">
+            <i class="fa-solid fa-map"></i>
+        </div>
+        <span>Carte</span>
+    </div>
+
+</nav>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
