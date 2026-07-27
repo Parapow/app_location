@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Globaux & Hero
   document.getElementById('btnNavLogement').href = CONFIG.global.googleMapsLink;
   document.getElementById('homeHeroImg').src = CONFIG.home.heroImg;
+  document.getElementById('heroTitle').textContent = CONFIG.global.logementNom;
+  document.getElementById('heroAddress').textContent = `${CONFIG.global.logementAdresseLigne1}, ${CONFIG.global.logementAdresseLigne3}`;
   document.getElementById('homeWelcomeTitle').innerHTML = CONFIG.home.welcomeTitle;
   document.getElementById('homeWelcomeSub').textContent = CONFIG.home.welcomeSubtitle;
 

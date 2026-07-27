@@ -11,9 +11,9 @@ const CONFIG = {
 
   // Page d'accueil
   home: {
-    heroImg: "https://www.okvoyage.com/wp-content/uploads/2023/08/que-faire-au-grau-du-roi.jpg",
-    welcomeTitle: 'Bienvenue à <em>La Parenthèse du Grau</em>.',
-    welcomeSubtitle: "Nous sommes ravis de vous accueillir et vous souhaitons un agréable séjour.",
+    heroImg: "https://i.ibb.co/nqYpRfKg/49-F5-F215-F066-47-B4-9189-71-BF849817-CC.png",
+    welcomeTitle: '<b>Bienvenue <em>chez vous</em> 🏠',
+    welcomeSubtitle: "Nous sommes ravis de vous accueillir ! Retrouvez dans ce livret les consignes, les conseils pratiques et nos meilleures adresses locales. Installez-vous et profitez bien de votre séjour !",
     
     arrivee: {
       heure: "15h00",
@@ -29,8 +29,8 @@ const CONFIG = {
           imgNote: "Cliquez sur l'image pour l'agrandir."
         },
         {
-          titre: "Digicode du bâtiment",
-          texte: "Entrez le code à 4 chiffres sur le digicode pour rentrer dans le bâtiment et montez à l'étage D2."
+          titre: "Digicode du bâtiment (Bat. D)",
+          texte: "Entrez le code 1970 sur le digicode pour rentrer dans le bâtiment et montez à l'étage D2 (2ème étage)."
         },
         {
           titre: "Porte du logement (119)",
@@ -38,7 +38,7 @@ const CONFIG = {
         },
         {
           titre: "Boîte à clés",
-          texte: "Entrez le code ci-dessous, tirez le volet et récupérez le trousseau de clés."
+          texte: "Entrez le code 4729, tirez le volet et récupérez le trousseau de clés. Bienvenue chez vous !"
         }
       ]
     },
@@ -53,7 +53,7 @@ const CONFIG = {
       { icon: "fa-ban-smoking", title: "Non-fumeur", text: "Il est strictement interdit de fumer à l'intérieur du logement." },
       { icon: "fa-paw", title: "Animaux non admis", text: "Les animaux de compagnie ne sont malheureusement pas acceptés." },
       { icon: "fa-circle-xmark", title: "Pas de fêtes", text: "Les soirées ou événements festifs sont interdits dans le logement." },
-      { icon: "fa-user-plus", title: "Capacité maximale", text: "Le studio est prévu pour 4 personnes. Merci de respecter cette limite." },
+      { icon: "fa-user-plus", title: "Capacité maximale", text: "Le studio est prévu pour 2 personnes (+1 enfant en bas âge). Merci de respecter cette limite." },
       { icon: "fa-trash-can", title: "Jeter vos ordures", text: "Merci de vider vos déchets et sacs poubelles dans les conteneurs de la résidence avant votre départ." }
     ],
 

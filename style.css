@@ -50,7 +50,7 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border-radius: 0 0 28px 28px;
+  border-radius: 0 0 0px 0px;
 }
 
 .hero__img {
@@ -75,19 +75,12 @@ body {
   );
 }
 
-/* ── Welcome Card ── */
-.welcome-card {
+/* ── Hero Info (titre + adresse, superposés sur la photo) ── */
+.hero__info {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  background: var(--white);
-  border-radius: var(--card-radius);
-  padding: 16px 18px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  box-shadow: var(--shadow-card);
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
   animation: slideUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
   animation-delay: 0.15s;
 }
@@ -97,57 +90,70 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-
-
-/* ── Welcome Card : variante Logo (page d'accueil) ── */
-.welcome-card--logo {
-  align-items: center;
-  justify-content: center;
-  padding: 0px 0px;
-}
-
-.welcome-card__logo {
-  display: block;
-  width: 65%;
-  max-width: 200px;
-  height: auto;
-}
-
-/* ── Texte de bienvenue (déplacé hors de l'encadré, au-dessus du bouton) ── */
-.welcome-text {
-  margin-bottom: 15px;
-}
-
-.welcome-text__title {
+.hero__title {
   font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 400; /* Allégé */
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+.hero__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+
+.hero__location i {
+  font-size: 12px;
+  color: var(--white);
+}
+
+/* ── Bloc de bienvenue (même style de carte que le reste du site) ── */
+.welcome-box {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  border: 1.5px solid var(--ocean-light);
+  box-shadow: 0 2px 12px rgba(58,124,165,0.07);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  animation: fadeInUp 0.4s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.welcome-box__title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.3;
   color: var(--text);
   margin-bottom: 6px;
-  margin-top: -30px;
-  text-align: center;
+  letter-spacing: -0.01em;
 }
 
-.welcome-text__title em {
+.welcome-box__title em {
   font-style: italic;
   color: var(--ocean);
 }
 
-.welcome-text__sub {
-  font-size: 13px;
-  line-height: 1.55;
+.welcome-box__sub {
+  font-size: 0.85rem;
+  line-height: 1.6;
   color: var(--text-light);
   font-weight: 300;
-  text-align: center;
-  margin-bottom: 10px;
 }
 
 /* ══════════════════════════════
    MAIN
 ══════════════════════════════ */
 .main {
-  margin-top: 60px;
+  margin-top: 10px;
   padding: 16px;
 }
 
@@ -472,11 +478,9 @@ body {
   align-items: flex-start;
   padding: 10px 12px;
   border-radius: 10px;
-  background: #faf8f4;
+  background: #f4f8fa;
   border-left: 3px solid var(--ocean); /* <- MODIFIÉ ICI: Uniformisation en bleu */
 }
-
-/* Les lignes spécifiques aux couleurs de règles sont maintenant supprimées puisqu'on veut tout en bleu */
 
 .rule-item__icon {
   display: flex; align-items: center; justify-content: center;
@@ -494,6 +498,7 @@ body {
 .rule-item__text span {
   font-size: 0.79rem;
   color: #888;
+  text-align: justify;
 }
 
 .equip-grid {
@@ -629,6 +634,20 @@ body {
 .faq-item.open .faq-item__a { grid-template-rows: 1fr; }
 .faq-item__a-inner { overflow: hidden; font-size: 0.82rem; color: #666; line-height: 1.6; padding: 0 14px; }
 .faq-item.open .faq-item__a-inner { padding: 8px 14px 12px; }
+
+/* ── Footer logo (bas de la page d'accueil) ── */
+.home-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+ 
+.home-footer__logo {
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+}
 
 /* ── Bouton Itinéraire ── */
 .nav-button {
@@ -834,7 +853,7 @@ body.address-open .hero, body.address-open .main { opacity: 0; transform: transl
 .infos-page { display: none; }
 .infos-page.is-visible { display: block; }
 .main.is-hidden { display: none; }
-.infos-page__content { margin-top: 0; padding: 0 16px 24px; }
+.infos-page__content { margin-top: 0; padding: 0 16px 0px; }
 
 /* Animation d'apparition, rejouée à chaque affichage de la page Infos */
 #infosPage .address-header {
@@ -846,7 +865,7 @@ body.address-open .hero, body.address-open .main { opacity: 0; transform: transl
 #infosPage .infos-section:nth-of-type(2) {
   animation-delay: 0.08s;
 }
-.infos-section { margin-bottom: 26px; }
+.infos-section { margin-bottom: 0px; }
 .infos-section__title {
   font-family: var(--font-display); font-size: 1.45rem; font-weight: 400; /* Allégé */
   margin-top: 28px; margin-bottom: 14px; color: var(--text);

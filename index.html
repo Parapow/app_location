@@ -25,19 +25,22 @@
   <div class="hero__photo">
     <img id="homeHeroImg" src="" alt="Le Grau du Roi" class="hero__img" />
     <div class="hero__overlay"></div>
-  </div>
-
-  <div class="welcome-card welcome-card--logo">
-    <img src="logo.png" alt="La Parenthèse du Grau" class="welcome-card__logo" />
+    <div class="hero__info">
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <div class="hero__location">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="heroAddress"></span>
+      </div>
+    </div>
   </div>
 </section>
 
 <main class="main" id="homePage">
   <div class="section-grid">
 
-    <div class="welcome-text">
-      <p class="welcome-text__title" id="homeWelcomeTitle"></p>
-      <p class="welcome-text__sub" id="homeWelcomeSub"></p>
+    <div class="welcome-box">
+      <p class="welcome-box__title" id="homeWelcomeTitle"></p>
+      <p class="welcome-box__sub" id="homeWelcomeSub"></p>
     </div>
 
     <a id="btnNavLogement" href="#" class="nav-button" target="_blank" rel="noopener noreferrer">
@@ -163,6 +166,19 @@
 
       <div class="info-card" data-card>
         <button class="info-card__header" aria-expanded="false">
+          <span class="info-card__icon"><i class="fa-solid fa-trash"></i></span>
+          <span class="info-card__title">Tri des déchets</span>
+          <span class="info-card__arrow"><i class="fa-solid fa-chevron-right"></i></span>
+        </button>
+        <div class="info-card__body">
+          <div class="tile-content">
+            <p>######### A COMPLETER ######### La résidence dispose d'un local poubelle accessible via la clé sur votre trousseau.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card" data-card>
+        <button class="info-card__header" aria-expanded="false">
           <span class="info-card__icon"><i class="fa-solid fa-circle-question"></i></span>
           <span class="info-card__title">F.A.Q</span>
           <span class="info-card__arrow"><i class="fa-solid fa-chevron-right"></i></span>
@@ -175,6 +191,10 @@
       </div>
 
     </div>
+
+    <footer class="home-footer">
+      <img src="logo.png" alt="La Parenthèse du Grau" class="home-footer__logo" />
+    </footer>
 </main>
 
 <div id="infosPage" class="infos-page">
@@ -216,6 +236,10 @@
       <div class="device-list" id="deviceListContainer"></div>
     </section>
   </div>
+
+  <footer class="home-footer">
+      <img src="logo.png" alt="La Parenthèse du Grau" class="home-footer__logo" />
+    </footer>
 </div>
 
 <section class="address-page" id="addressPage">
